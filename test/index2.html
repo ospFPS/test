@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Showcase</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+<h1>CSS Animations Showcase</h1>
+
+<div class="container">
+    <div class="box">Transition</div>
+    <div class="box keyframe-box">Keyframes</div>
+    <div class="box hover-box">Hover</div>
+    <div class="loading-box"></div>
+    <div class="box scroll-box">Scroll</div>
+    <div class="box svg-box">
+        <svg viewBox="0 0 100 100">
+            <path d="M10,80 Q50,10 90,80" stroke="white" stroke-width="5" fill="none"></path>
+        </svg>
+    </div>
+    <div class="box text-box">Text Animation</div>
+    <div class="box background-box">Background</div>
+    <div class="box box-3d">3D</div>
+</div>
+
+<script>
+    // Scroll Animation
+    const scrollBox = document.querySelector('.scroll-box');
+    window.addEventListener('scroll', () => {
+        const rect = scrollBox.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            scrollBox.classList.add('visible');
+        }
+    });
+</script>
+
+</body>
+</html>

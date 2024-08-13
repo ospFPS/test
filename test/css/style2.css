@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Transitions */
+.box:hover {
+    background-color: #2ecc71;
+    transform: scale(1.2);
+}
+
+/* Keyframe Animation */
+.keyframe-box {
+    animation: rotateScale 3s infinite alternate;
+}
+
+@keyframes rotateScale {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.5);
+    }
+}
+
+/* Hover Animation */
+.hover-box:hover::before {
+    content: 'Hovered!';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Loading Animation */
+.loading-box {
+    border-radius: 50%;
+    border: 5px solid #f0f0f0;
+    border-top: 5px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scroll Animation */
+.scroll-box {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.scroll-box.visible {
+    opacity: 1;
+}
+
+/* SVG Animation */
+.svg-box {
+    width: 100px;
+    height: 100px;
+}
+
+.svg-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+.svg-box svg path {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: draw 2s forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Text Animation */
+.text-box {
+    font-size: 20px;
+    animation: typing 4s steps(20) infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Background Animation */
+.background-box {
+    background: linear-gradient(90deg, #3498db, #e74c3c);
+    background-size: 200% 200%;
+    animation: gradientShift 5s infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* 3D Animation */
+.box-3d {
+    transform-style: preserve-3d;
+    animation: rotate3d 4s infinite linear;
+}
+
+@keyframes rotate3d {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}

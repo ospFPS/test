@@ -1,0 +1,281 @@
+body {
+    font-family: 'Noto Sans Thai', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom,
+            rgba(71, 71, 71, 0.6),
+            rgba(0, 0, 0, 0.8)),
+        url("../assets/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+}
+
+.Head_texts {
+    color: azure;
+    font-size: 2em;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 20px; /* Add some space between header and nav */
+}
+
+.typing-text {
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 2s steps(20, end) forwards, 
+               cursor .4s step-end infinite alternate;
+    line-height: 1; 
+    vertical-align: bottom;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 60px; 
+    width: fit-content; 
+    border: 2px solid azure; 
+    position: relative;
+    right: -1560px;
+    top: -130px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    color: azure;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: azure;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav a:hover {
+    color: #ffb5fb; /* Change the text color on hover */
+}
+
+.btn {
+    margin: 100px;
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    top: -40px;
+    z-index: 0;
+    border-radius: 12px;
+    transition: transform 0.3s ease; 
+}
+
+.btn:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ffa8f3, #ffb5fb
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #7486ec;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.04); 
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active:after {
+    background: transparent;
+}
+
+.btn:active {
+    color: #000;
+    font-weight: bold;
+}
+
+@keyframes cursor {
+    50% { border-color: transparent; }
+}
+
+@keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 12ch; } /* Adjust 12ch to match the length of "bob macalen" */
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+.form-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: azure;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: azure;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 97%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button[type="submit"] {
+    width: 75%;
+    padding: auto;
+    top: 30px;
+    font-size: 1.2em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .Head_texts {
+        font-size: 1.5em;
+        white-space: normal; /* Allow text to wrap on smaller screens */
+        text-align: center; /* Center align text */
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        right: 0; /* Remove the large right offset */
+        top: 0; /* Adjust position for mobile */
+        width: 100%;
+        text-align: center;
+        border: none; /* Remove border to fit better on small screens */
+    }
+
+    nav a {
+        font-size: 1.2em; /* Smaller font for mobile */
+    }
+
+    .btn {
+        margin: 20px auto;
+        padding: 10px 20px;
+        width: 90%;
+        top: 0;
+    }
+
+    .form-section {
+        max-width: 90%; /* Reduce width for mobile */
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .form-group button[type="submit"] {
+        width: 100%; /* Make the button full-width */
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Head_texts {
+        font-size: 1.2em;
+    }
+
+    nav a {
+        font-size: 1em;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        width: 100%; /* Full width for very small screens */
+    }
+
+    .form-group button[type="submit"] {
+        width: 100%; /* Full width button */
+    }
+}
